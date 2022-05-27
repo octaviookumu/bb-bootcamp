@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LayoutService } from '@backbase/ui-ang';
 
 @Component({
   selector: 'bootcamp-root',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'peachtree-bank';
+  constructor(
+    public readonly layoutService: LayoutService
+  ) {/**/}
 }
