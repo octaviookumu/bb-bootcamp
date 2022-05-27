@@ -162,7 +162,7 @@
                 class="bb-layout__horizontal-nav-submenu-link"
                 ngbDropdownItem
                 routerLinkActive="bb-layout__horizontal-nav-submenu-link--active"
-                routerLink="/2/3"
+                routerLink="/2/connected-accounts"
                 #connectedAccountsRouterLink="routerLinkActive"
                 [attr.aria-current]="
                   connectedAccountsRouterLink.isActive ? 'page' : undefined
@@ -175,6 +175,24 @@
                 </div>
               </a>
             </li>
+            <li>
+                <a
+                  class="bb-layout__horizontal-nav-submenu-link"
+                  ngbDropdownItem
+                  routerLinkActive="bb-layout__horizontal-nav-submenu-link--active"
+                  routerLink="/2/pockets"
+                  #pocketsRouterLink="routerLinkActive"
+                  [attr.aria-current]="
+                    pocketsRouterLink.isActive ? 'page' : undefined
+                  "
+                >
+                  <div class="bb-layout__bb-horizontal-nav-submenu-item-label">
+                    <div class="bb-layout__bb-horizontal-nav-submenu-title">
+                      Pockets
+                    </div>
+                  </div>
+                </a>
+              </li>
           </ul>
         </div>
       </li>
