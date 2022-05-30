@@ -24,7 +24,6 @@ export const environment = {
     CategoriesHttpServiceMocksProvider,
     FinancialInstitutionManagerClientHttpServiceMocksProvider,
   ],
-  enableManageAccounts: true, // enable toggling manage accounts
 };
 
 /*
