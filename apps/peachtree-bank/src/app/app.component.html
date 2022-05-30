@@ -176,23 +176,23 @@
               </a>
             </li>
             <li>
-                <a
-                  class="bb-layout__horizontal-nav-submenu-link"
-                  ngbDropdownItem
-                  routerLinkActive="bb-layout__horizontal-nav-submenu-link--active"
-                  routerLink="/2/pockets"
-                  #pocketsRouterLink="routerLinkActive"
-                  [attr.aria-current]="
-                    pocketsRouterLink.isActive ? 'page' : undefined
-                  "
-                >
-                  <div class="bb-layout__bb-horizontal-nav-submenu-item-label">
-                    <div class="bb-layout__bb-horizontal-nav-submenu-title">
-                      Pockets
-                    </div>
+              <a
+                class="bb-layout__horizontal-nav-submenu-link"
+                ngbDropdownItem
+                routerLinkActive="bb-layout__horizontal-nav-submenu-link--active"
+                routerLink="/2/pockets"
+                #pocketsRouterLink="routerLinkActive"
+                [attr.aria-current]="
+                  pocketsRouterLink.isActive ? 'page' : undefined
+                "
+              >
+                <div class="bb-layout__bb-horizontal-nav-submenu-item-label">
+                  <div class="bb-layout__bb-horizontal-nav-submenu-title">
+                    Pockets
                   </div>
-                </a>
-              </li>
+                </div>
+              </a>
+            </li>
           </ul>
         </div>
       </li>
@@ -746,7 +746,10 @@
         <!--Header Area-->
         <div class="bb-layout__main-content-header" aria-live="polite"></div>
         <!-- Main Content Area -->
-        <div class="bb-layout__main-content-area"></div>
+        <div class="bb-layout__main-content-area">
+          <!-- Remember to add the router-outlet as this might be missing from the backbase design documentation -->
+          <router-outlet></router-outlet>
+        </div>
       </div>
     </div>
   </div>

@@ -2,8 +2,29 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+import {
+  AccountsHttpServiceMocksProvider,
+  ArrangementsHttpServiceMocksProvider,
+  ProductSummaryHttpServiceMocksProvider,
+} from '@backbase/data-ang/arrangements';
+import { CategoriesHttpServiceMocksProvider } from '@backbase/data-ang/categories-management';
+import { FinancialInstitutionManagerClientHttpServiceMocksProvider } from '@backbase/data-ang/financial-institution-manager';
+import { TransactionClientHttpServiceMocksProvider } from '@backbase/data-ang/transactions';
+import { createMocksInterceptor } from '@backbase/foundation-ang/data-http';
+
 export const environment = {
   production: false,
+  apiRoot: '/api',
+  mockProviders: [
+    createMocksInterceptor(),
+    ArrangementsHttpServiceMocksProvider,
+    ProductSummaryHttpServiceMocksProvider,
+    AccountsHttpServiceMocksProvider,
+    TransactionClientHttpServiceMocksProvider,
+    CategoriesHttpServiceMocksProvider,
+    FinancialInstitutionManagerClientHttpServiceMocksProvider,
+  ],
+  enableManageAccounts: true, // enable toggling manage accounts
 };
 
 /*

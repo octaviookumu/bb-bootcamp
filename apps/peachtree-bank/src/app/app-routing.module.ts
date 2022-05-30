@@ -7,11 +7,12 @@ const routes: Routes = [
     pathMatch: 'full',
     redirectTo: 'my-accounts',
   },
+  // path for transactions module
   {
     path: 'my-accounts',
     loadChildren: () =>
       import('./account-transactions/account-transactions-bundle.module').then(
-        (m) => m.AccountsTransactionsJourneyBundleModule
+        (m) => m.AccountsTransactionsBundleModule
       ),
   },
   {
