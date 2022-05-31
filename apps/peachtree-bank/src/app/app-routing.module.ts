@@ -16,6 +16,13 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'pockets',
+    loadChildren: () =>
+      import('./pockets/pockets-bundle.module').then(
+        (m) => m.PocketsJourneyBundleModule
+      ),
+  },
+  {
     path: '**',
     pathMatch: 'full',
     redirectTo: 'my-accounts',

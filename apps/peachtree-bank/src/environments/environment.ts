@@ -11,6 +11,7 @@ import { CategoriesHttpServiceMocksProvider } from '@backbase/data-ang/categorie
 import { FinancialInstitutionManagerClientHttpServiceMocksProvider } from '@backbase/data-ang/financial-institution-manager';
 import { TransactionClientHttpServiceMocksProvider } from '@backbase/data-ang/transactions';
 import { createMocksInterceptor } from '@backbase/foundation-ang/data-http';
+import { PocketsHttpServiceMocksProvider } from '@bootcamp/pockets-api';
 
 export const environment = {
   production: false,
@@ -23,6 +24,7 @@ export const environment = {
     TransactionClientHttpServiceMocksProvider,
     CategoriesHttpServiceMocksProvider,
     FinancialInstitutionManagerClientHttpServiceMocksProvider,
+    PocketsHttpServiceMocksProvider,
   ],
 };
 
