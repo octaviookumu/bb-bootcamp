@@ -11,14 +11,14 @@ const routes: Routes = [
   {
     path: 'my-accounts',
     loadChildren: () =>
-      import('./account-transactions/account-transactions-bundle.module').then(
+      import('./journeys/account-transactions/bundle-account-transactions-journey.module').then(
         (m) => m.AccountsTransactionsBundleModule
       ),
   },
   {
     path: 'pockets',
     loadChildren: () =>
-      import('./pockets/pockets-bundle.module').then(
+      import('./journeys/pockets/bundle-pockets-journey.module').then(
         (m) => m.PocketsJourneyBundleModule
       ),
   },

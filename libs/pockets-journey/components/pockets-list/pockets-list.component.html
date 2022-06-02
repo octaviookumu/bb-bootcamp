@@ -1,0 +1,36 @@
+<p>pockets-list works!</p>
+
+<ng-container *ngIf="pockets$ | async as pockets">
+  <bootcamp-pocket-details
+    *ngFor="let item of pockets"
+    [pocketData]="item"
+  ></bootcamp-pocket-details>
+</ng-container>
+
+<div class="container" style="border: 1px solid black"></div>
+<ng-container *ngIf="testPocket">
+  <div class="parent p-5" style="display: flex;">
+    <div class="pig p-2" style="border: 1px solid red; flex-basis: 20%">pig</div>
+    <div
+      class="stats p-3"
+      style="
+        border: 1px solid blue;
+        display: flex;
+        flex-direction: column;
+        flex-basis: 80%;
+      "
+    >
+      <h2>{{ testPocket.name }}</h2>
+      <h2>{{ testPocket.funds.amount }} / {{ testPocket.goal.amount }}</h2>
+      <bb-progressbar-ui
+        type="primary"
+        [striped]="false"
+        [animated]="false"
+        [showValue]="false"
+        [value]="testPocket.funds.amount / testPocket.goal.amount"
+        [max]="1"
+      >
+      </bb-progressbar-ui>
+    </div>
+  </div>
+</ng-container>
