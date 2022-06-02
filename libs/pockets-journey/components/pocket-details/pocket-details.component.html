@@ -1,0 +1,159 @@
+<div class="mt-5">
+  <button
+    bbbutton=""
+    buttonsize="md"
+    class="m-2 btn-link-text btn-md btn ng-star-inserted"
+    data-role="btn-icon-link-text-md-def"
+    type="button"
+  >
+    <bb-icon-ui cropped=""
+      ><em
+        role="img"
+        class="bb-icon bb-icon-arrow-back bb-icon--md bb-icon--cropped bb-icon--primary"
+        aria-hidden="true"
+      ></em></bb-icon-ui
+    ><span> <a [routerLink]="['/pockets']"> Back to pockets </a> </span>
+  </button>
+  <bb-header-ui headingType="h1" [heading]="pocketData.name"></bb-header-ui>
+
+  <ng-container *ngIf="pocketData">
+    <div class="card">
+      <div class="parent p-5" style="display: flex">
+        <div class="pig p-2" style="flex-basis: 20%">
+          <bootcamp-pocket-svg></bootcamp-pocket-svg>
+        </div>
+        <div
+          class="stats p-3"
+          style="display: flex; flex-direction: column; flex-basis: 80%"
+        >
+          <h2>
+            {{ pocketData.funds.amount | currency: 'USD':'symbol':'0.2-2' }} /
+            <span class="bb-text-support">
+              {{ pocketData.goal.amount | currency: 'USD':'symbol':'0.0-0' }}
+            </span>
+          </h2>
+          <div style="display: flex">
+            <span
+              ><bb-icon-ui
+                class="bb-layout__vertical-nav-item-icon bb-text-support"
+                name="calendar"
+              ></bb-icon-ui
+            ></span>
+            <p class="bb-text-support">
+              Goal date: {{ pocketData.goalDate | date }}
+            </p>
+          </div>
+
+          <bb-progressbar-ui
+            type="primary"
+            [striped]="false"
+            [animated]="false"
+            [showValue]="false"
+            [value]="pocketData.funds.amount / pocketData.goal.amount"
+            [max]="1"
+            height="6px"
+          >
+          </bb-progressbar-ui>
+          <p class="mt-1">
+            {{ pocketData.funds.amount / pocketData.goal.amount | percent }}
+            completed
+          </p>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="bb-subheader bb-text-support bb-block bb-block--md">
+          Today
+        </div>
+        <div class="bb-block bb-block--xl">
+          <div class="bb-stack bb-stack--wrap">
+            <bb-icon-ui
+              name="savings-accounts"
+              size="md"
+              color="savings-account"
+              backgroundType="square"
+            ></bb-icon-ui>
+            <div class="bb-stack__item m-2">
+              <div class="bb-account-info ng-star-inserted">
+                <div>Current Account</div>
+                <div class="bb-text-support">Outgoing</div>
+              </div>
+            </div>
+            <div class="bb-stack__break bb-stack__break--xs"></div>
+            <div
+              class="bb-stack__item bb-stack__item--push-right bb-stack__item--spacing-none bb-highlight"
+            >
+              <bb-amount-ui
+                [currency]="'USD'"
+                [amount]="-5"
+                [mapCurrency]="true"
+                [showPlusSign]="false"
+                [abbreviate]="false"
+              ></bb-amount-ui>
+            </div>
+          </div>
+        </div>
+        <div class="bb-stack bb-stack--wrap">
+          <bb-icon-ui
+            name="savings-accounts"
+            size="md"
+            color="savings-account"
+            backgroundType="square"
+          ></bb-icon-ui>
+          <div class="bb-stack__item m-2">
+            <div class="bb-account-info ng-star-inserted">
+              <div>Shared Account</div>
+              <div class="bb-text-support">Incoming</div>
+            </div>
+          </div>
+          <div class="bb-stack__break bb-stack__break--xs"></div>
+          <div
+            class="bb-stack__item bb-stack__item--push-right bb-stack__item--spacing-none bb-highlight"
+          >
+            <bb-amount-ui
+              [currency]="'USD'"
+              [amount]="+43.12"
+              [mapCurrency]="true"
+              [showPlusSign]="false"
+              [abbreviate]="false"
+              class="text-success"
+            ></bb-amount-ui>
+          </div>
+        </div>
+        <hr _ngcontent-von-c253="" />
+        <div
+          _ngcontent-von-c253=""
+          class="bb-subheader bb-text-support bb-block bb-block--md"
+        >
+          Yesterday
+        </div>
+        <div class="bb-stack bb-stack--wrap">
+          <bb-icon-ui
+            name="savings-accounts"
+            size="md"
+            color="savings-account"
+            backgroundType="square"
+          ></bb-icon-ui>
+          <div class="bb-stack__item m-2">
+            <div class="bb-account-info ng-star-inserted">
+              <div>Saving Account</div>
+              <div class="bb-text-support">Incoming</div>
+            </div>
+          </div>
+          <div class="bb-stack__break bb-stack__break--xs"></div>
+          <div
+            class="bb-stack__item bb-stack__item--push-right bb-stack__item--spacing-none bb-highlight"
+          >
+            <bb-amount-ui
+              [currency]="'USD'"
+              [amount]="+9.34"
+              [mapCurrency]="true"
+              [showPlusSign]="false"
+              [abbreviate]="false"
+              class="text-success"
+            ></bb-amount-ui>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

@@ -3,6 +3,7 @@
   "version": 2,
   "projects": {
     "peachtree-bank": "apps/peachtree-bank",
-    "peachtree-bank-e2e": "apps/peachtree-bank-e2e"
+    "peachtree-bank-e2e": "apps/peachtree-bank-e2e",
+    "pockets-api": "libs/pockets-api"
   }
 }

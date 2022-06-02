@@ -19,7 +19,7 @@ import { environment } from '../environments/environment';
     LayoutModule,
     HttpClientModule,
     LogoModule,
-    NgbDropdownModule,
+    NgbDropdownModule
   ],
   providers: [...(environment.mockProviders || [])],
   bootstrap: [AppComponent],
