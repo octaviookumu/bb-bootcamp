@@ -40,8 +40,9 @@ export class PocketsListComponent implements OnInit {
       .pipe(tap((result) => console.log('POCKETS', result)));
   }
 
-  goToDetails(id: string) {
+  goToDetails(item: Pocket) {
     console.log('navigate');
-    this.router.navigate(['/pockets/details', id]);
+    // this.router.navigate(['/pockets/details', item.id, { queryParams : JSON.stringify(item) }]);
+    this.router.navigate(['/pockets/details', item.id], { queryParams: { data: JSON.stringify(item) } })
   }
 }

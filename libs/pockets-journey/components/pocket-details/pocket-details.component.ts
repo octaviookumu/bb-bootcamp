@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Pocket } from '../../../pockets-api/src/lib/model/pocket'
+import { Pocket } from '../../../pockets-api/src/lib/model/pocket';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'bootcamp-pocket-details',
@@ -7,9 +8,15 @@ import { Pocket } from '../../../pockets-api/src/lib/model/pocket'
   styleUrls: ['./pocket-details.component.scss'],
 })
 export class PocketDetailsComponent implements OnInit {
-  @Input('pocketData') pocketDataProps!: Pocket;
+  pocketData!: any;
+  urlData!: any;
 
-  constructor() {}
+  constructor(private route: ActivatedRoute) {}
 
-  ngOnInit(): void {}
+  ngOnInit() {
+    this.route.queryParamMap.subscribe(
+      (param) => (this.urlData = param.get('data'))
+    );
+    this.pocketData = JSON.parse(this.urlData);
+  }
 }

@@ -9,6 +9,10 @@ import { PocketDetailsComponent } from '../../../../../../libs/pockets-journey/c
 import { CommonModule } from '@angular/common';
 import { ProgressbarModule } from '@backbase/ui-ang';
 import { PocketSvgComponent } from '../../../../../../libs/pockets-journey/components/pocket-svg/pocket-svg.component';
+import { HeaderModule } from '@backbase/ui-ang';
+import { IconModule } from '@backbase/ui-ang';
+import { AmountModule } from '@backbase/ui-ang';
+
 // import { PUBSUB, PubSubService } from '@backbase/foundation-ang/web-sdk';
 
 const customRoutes: Route[] = [
@@ -19,17 +23,17 @@ const customRoutes: Route[] = [
       {
         path: '',
         redirectTo: 'list',
-        pathMatch: 'full'
+        pathMatch: 'full',
       },
       {
         path: 'list',
-        component: PocketsListComponent
+        component: PocketsListComponent,
       },
       {
         path: 'details/:id',
-        component: PocketDetailsComponent
-      }
-    ]
+        component: PocketDetailsComponent,
+      },
+    ],
   },
 ];
 
@@ -44,6 +48,9 @@ const customRoutes: Route[] = [
     ButtonModule,
     CommonModule,
     ProgressbarModule,
+    IconModule,
+    AmountModule,
+    HeaderModule,
     RouterModule.forChild(customRoutes),
   ],
   providers: [TemplateRegistry],
