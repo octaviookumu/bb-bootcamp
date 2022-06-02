@@ -1,15 +1,20 @@
-<p>pockets-list works!</p>
+<!-- <p>pockets-list works!</p> -->
 
-<ng-container *ngIf="pockets$ | async as pockets">
+<!-- <ng-container *ngIf="pockets$ | async as pockets">
   <bootcamp-pocket-details
     *ngFor="let item of pockets"
     [pocketData]="item"
   ></bootcamp-pocket-details>
-</ng-container>
+</ng-container> -->
 
-<div class="container" style="border: 1px solid black"></div>
-<ng-container *ngIf="testPocket">
-  <div class="parent p-5" style="display: flex">
+<!-- <div class="container" style="border: 1px solid black"></div> -->
+<ng-container *ngIf="pockets$ | async as pockets">
+  <div
+    *ngFor="let item of pockets"
+    class="parent p-5"
+    style="display: flex; cursor: pointer"
+    (click)="goToDetails(item.id)"
+  >
     <div class="pig p-2" style="border: 1px solid red; flex-basis: 20%">
       <bootcamp-pocket-svg></bootcamp-pocket-svg>
     </div>
@@ -22,23 +27,23 @@
         flex-basis: 80%;
       "
     >
-      <h2>{{ testPocket.name }}</h2>
+      <h2>{{ item.name }}</h2>
       <h2>
-        {{ testPocket.funds.amount | currency: 'USD':'symbol':'0.2-2' }} /
-        {{ testPocket.goal.amount | currency: 'USD':'symbol':'0.0-0' }}
+        {{ item.funds.amount | currency: 'USD':'symbol':'0.2-2' }} /
+        {{ item.goal.amount | currency: 'USD':'symbol':'0.0-0' }}
       </h2>
       <bb-progressbar-ui
         type="primary"
         [striped]="false"
         [animated]="false"
         [showValue]="false"
-        [value]="testPocket.funds.amount / testPocket.goal.amount"
+        [value]="item.funds.amount / item.goal.amount"
         [max]="1"
         class="mt-3"
       >
       </bb-progressbar-ui>
       <p class="mt-1" style="text-align: 'center'">
-        {{ testPocket.funds.amount / testPocket.goal.amount | percent }}
+        {{ item.funds.amount / item.goal.amount | percent }}
         completed
       </p>
     </div>

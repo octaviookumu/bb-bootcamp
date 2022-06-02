@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PocketsHttpService } from '@bootcamp/pockets-api';
 import { Pocket } from '../../../pockets-api/src/lib/model/pocket';
-import { map, Observable, tap } from 'rxjs';
+import { Observable, tap } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'bootcamp-pockets-list',
@@ -24,7 +25,10 @@ export class PocketsListComponent implements OnInit {
     goalDate: '2022-12-20T00:00:00+0000',
   };
 
-  constructor(private readonly pocketsService: PocketsHttpService) {
+  constructor(
+    private pocketsService: PocketsHttpService,
+    private router: Router
+  ) {
     this.getPockets();
   }
 
@@ -34,5 +38,10 @@ export class PocketsListComponent implements OnInit {
     this.pockets$ = this.pocketsService
       .pocketsGet()
       .pipe(tap((result) => console.log('POCKETS', result)));
+  }
+
+  goToDetails(id: string) {
+    console.log('navigate');
+    this.router.navigate(['/pockets/details', id]);
   }
 }

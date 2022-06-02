@@ -15,21 +15,21 @@ const customRoutes: Route[] = [
   {
     path: '',
     component: PocketsJourneyComponent,
-    // children: [
-    //   {
-    //     path: '',
-    //     redirectTo: 'list',
-    //     pathMatch: 'full'
-    //   },
-    //   {
-    //     path: 'list',
-    //     component: PocketsListComponent
-    //   },
-    //   {
-    //     path: 'details/:id',
-    //     component: PocketDetailsComponent
-    //   }
-    // ]
+    children: [
+      {
+        path: '',
+        redirectTo: 'list',
+        pathMatch: 'full'
+      },
+      {
+        path: 'list',
+        component: PocketsListComponent
+      },
+      {
+        path: 'details/:id',
+        component: PocketDetailsComponent
+      }
+    ]
   },
 ];
 
