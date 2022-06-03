@@ -56,99 +56,50 @@
             </p>
           </div>
         </div>
+
         <div class="card-body">
-          <div class="bb-subheader bb-text-support bb-block bb-block--md">
-            Today
-          </div>
-          <div class="bb-block bb-block--xl">
-            <div class="bb-stack bb-stack--wrap">
-              <bb-icon-ui
-                name="savings-accounts"
-                size="md"
-                color="savings-account"
-                backgroundType="square"
-              ></bb-icon-ui>
-              <div class="bb-stack__item m-2">
-                <div class="bb-account-info ng-star-inserted">
-                  <div>Current Account</div>
-                  <div class="bb-text-support">Outgoing</div>
+          <ng-container *ngIf="pocketData.transactions as transactionsData">
+            <ng-container *ngFor="let data of transactionsData">
+              <div class="bb-subheader bb-text-support bb-block bb-block--md">
+                {{ data.date | date }}
+              </div>
+              <div class="bb-block bb-block--xl">
+                <div class="bb-stack bb-stack--wrap">
+                  <bb-icon-ui
+                    name="savings-accounts"
+                    size="md"
+                    color="savings-account"
+                    backgroundType="square"
+                  ></bb-icon-ui>
+                  <div class="bb-stack__item m-2">
+                    <div class="bb-account-info ng-star-inserted">
+                      <div>{{ data.account }} Account</div>
+                      <div class="bb-text-support">
+                        {{ data.incoming ? 'Incoming' : 'Outgoing' }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bb-stack__break bb-stack__break--xs"></div>
+                  <div
+                    class="bb-stack__item bb-stack__item--push-right bb-stack__item--spacing-none bb-highlight"
+                  >
+                    <span [ngClass]="data.incoming ? 'text-success' : ''">{{
+                      data.incoming ? '+' : '-'
+                    }}</span>
+                    <bb-amount-ui
+                      [currency]="data.amount.currency"
+                      [amount]="data.amount.amount"
+                      [mapCurrency]="true"
+                      [showPlusSign]="false"
+                      [abbreviate]="false"
+                      [ngClass]="data.incoming ? 'text-success' : ''"
+                    ></bb-amount-ui>
+                  </div>
                 </div>
               </div>
-              <div class="bb-stack__break bb-stack__break--xs"></div>
-              <div
-                class="bb-stack__item bb-stack__item--push-right bb-stack__item--spacing-none bb-highlight"
-              >
-                <bb-amount-ui
-                  [currency]="'USD'"
-                  [amount]="-5"
-                  [mapCurrency]="true"
-                  [showPlusSign]="false"
-                  [abbreviate]="false"
-                ></bb-amount-ui>
-              </div>
-            </div>
-          </div>
-          <div class="bb-stack bb-stack--wrap">
-            <bb-icon-ui
-              name="savings-accounts"
-              size="md"
-              color="savings-account"
-              backgroundType="square"
-            ></bb-icon-ui>
-            <div class="bb-stack__item m-2">
-              <div class="bb-account-info ng-star-inserted">
-                <div>Shared Account</div>
-                <div class="bb-text-support">Incoming</div>
-              </div>
-            </div>
-            <div class="bb-stack__break bb-stack__break--xs"></div>
-            <div
-              class="bb-stack__item bb-stack__item--push-right bb-stack__item--spacing-none bb-highlight"
-            >
-              <bb-amount-ui
-                [currency]="'USD'"
-                [amount]="+43.12"
-                [mapCurrency]="true"
-                [showPlusSign]="false"
-                [abbreviate]="false"
-                class="text-success"
-              ></bb-amount-ui>
-            </div>
-          </div>
-          <hr _ngcontent-von-c253="" />
-          <div
-            _ngcontent-von-c253=""
-            class="bb-subheader bb-text-support bb-block bb-block--md"
-          >
-            Yesterday
-          </div>
-          <div class="bb-stack bb-stack--wrap">
-            <bb-icon-ui
-              name="savings-accounts"
-              size="md"
-              color="savings-account"
-              backgroundType="square"
-            ></bb-icon-ui>
-            <div class="bb-stack__item m-2">
-              <div class="bb-account-info ng-star-inserted">
-                <div>Saving Account</div>
-                <div class="bb-text-support">Incoming</div>
-              </div>
-            </div>
-            <div class="bb-stack__break bb-stack__break--xs"></div>
-            <div
-              class="bb-stack__item bb-stack__item--push-right bb-stack__item--spacing-none bb-highlight"
-            >
-              <bb-amount-ui
-                [currency]="'USD'"
-                [amount]="+9.34"
-                [mapCurrency]="true"
-                [showPlusSign]="false"
-                [abbreviate]="false"
-                class="text-success"
-              ></bb-amount-ui>
-            </div>
-          </div>
+              <hr />
+            </ng-container>
+          </ng-container>
         </div>
       </div>
     </ng-container>

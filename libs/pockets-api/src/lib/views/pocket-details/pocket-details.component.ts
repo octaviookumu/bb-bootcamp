@@ -19,10 +19,8 @@ export class PocketDetailsComponent implements OnInit {
 
   ngOnInit() {
     const pocketId = this.route.snapshot.params['id'];
-    console.log(pocketId);
     this.pocketData$ = this.pocketsService.pocketsIdGet({ id: pocketId }).pipe(
-      map((res: any) => res[0]),
-      tap((ting) => console.log('TING', ting))
+      map((res: any) => res[0])
     );
   }
 }
