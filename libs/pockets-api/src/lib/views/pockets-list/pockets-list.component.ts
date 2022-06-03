@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { Component } from '@angular/core';
 import { PocketsHttpService } from '@bootcamp/pockets-api';
-import { Pocket } from '../../../pockets-api/src/lib/model/pocket';
+import { Pocket } from '../../model/pocket';
 import { Observable, tap } from 'rxjs';
 import { Router } from '@angular/router';
 
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
   templateUrl: './pockets-list.component.html',
   styleUrls: ['./pockets-list.component.scss'],
 })
-export class PocketsListComponent implements OnInit {
+export class PocketsListComponent{
   pockets$!: Observable<any>;
   testPocket = {
     id: '1a',
@@ -32,8 +33,6 @@ export class PocketsListComponent implements OnInit {
     this.getPockets();
   }
 
-  ngOnInit(): void {}
-
   getPockets() {
     this.pockets$ = this.pocketsService
       .pocketsGet()
@@ -43,6 +42,8 @@ export class PocketsListComponent implements OnInit {
   goToDetails(item: Pocket) {
     console.log('navigate');
     // this.router.navigate(['/pockets/details', item.id, { queryParams : JSON.stringify(item) }]);
-    this.router.navigate(['/pockets/details', item.id], { queryParams: { data: JSON.stringify(item) } })
+    this.router.navigate(['/pockets/details', item.id], {
+      queryParams: { data: JSON.stringify(item) },
+    });
   }
 }

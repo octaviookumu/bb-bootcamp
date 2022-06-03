@@ -7,8 +7,10 @@ import { IconModule, LayoutModule, LogoModule } from '@backbase/ui-ang';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { environment } from '../environments/environment';
+import { PocketsInterceptor } from './interceptors/pockets.interceptor';
+import { EntitlementsModule } from '@backbase/foundation-ang/entitlements';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,9 +21,14 @@ import { environment } from '../environments/environment';
     LayoutModule,
     HttpClientModule,
     LogoModule,
-    NgbDropdownModule
+    NgbDropdownModule,
+    EntitlementsModule
   ],
-  providers: [...(environment.mockProviders || [])],
+  providers: [...(environment.mockProviders || []),{
+    provide: HTTP_INTERCEPTORS,
+    useClass: PocketsInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

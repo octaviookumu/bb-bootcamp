@@ -103,7 +103,7 @@
             <div class="bb-layout__horizontal-nav-submenu--text">Main Menu</div>
           </button>
           <ul class="bb-layout__horizontal-nav-column">
-            <li>
+            <li *bbIfEntitlements="'Payments.Transfer.create AND Payments.Transfer.view'">
               <a
                 class="bb-layout__horizontal-nav-submenu-link"
                 ngbDropdownItem

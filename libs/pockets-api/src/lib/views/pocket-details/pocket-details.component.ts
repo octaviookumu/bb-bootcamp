@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Pocket } from '../../../pockets-api/src/lib/model/pocket';
+import { Pocket } from '../../model/pocket';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({

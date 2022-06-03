@@ -1,0 +1,21 @@
+.pockets-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pockets-container {
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+}
+
+.pockets-svg {
+  flex-basis: 20%;
+}
+
+.pockets-data {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 80%;
+}
