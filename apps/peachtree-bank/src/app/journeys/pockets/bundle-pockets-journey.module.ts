@@ -2,16 +2,17 @@ import { NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
 // import { PocketsApiModule } from '../../../../../libs/pockets-api/src/lib/pockets-api.module';
 import { TemplateRegistry } from '@backbase/foundation-ang/core';
-import { PocketsJourneyComponent } from '../../../../../../libs/pockets-journey/components/pockets/pockets.component';
+import { PocketsJourneyComponent } from '../../../../../../libs/pockets-api/src/lib/views/pockets/pockets.component';
 import { ButtonModule } from '@backbase/ui-ang';
-import { PocketsListComponent } from '../../../../../../libs/pockets-journey/components/pockets-list/pockets-list.component';
-import { PocketDetailsComponent } from '../../../../../../libs/pockets-journey/components/pocket-details/pocket-details.component';
+import { PocketsListComponent } from '../../../../../../libs/pockets-api/src/lib/views/pockets-list/pockets-list.component';
+import { PocketDetailsComponent } from '../../../../../../libs/pockets-api/src/lib/views/pocket-details/pocket-details.component';
 import { CommonModule } from '@angular/common';
 import { ProgressbarModule } from '@backbase/ui-ang';
-import { PocketSvgComponent } from '../../../../../../libs/pockets-journey/components/pocket-svg/pocket-svg.component';
+import { PocketSvgComponent } from '../../../../../../libs/pockets-api/src/lib/views/pocket-svg/pocket-svg.component';
 import { HeaderModule } from '@backbase/ui-ang';
 import { IconModule } from '@backbase/ui-ang';
 import { AmountModule } from '@backbase/ui-ang';
+import { EntitlementsModule } from '@backbase/foundation-ang/entitlements';
 
 // import { PUBSUB, PubSubService } from '@backbase/foundation-ang/web-sdk';
 
@@ -51,6 +52,7 @@ const customRoutes: Route[] = [
     IconModule,
     AmountModule,
     HeaderModule,
+    EntitlementsModule,
     RouterModule.forChild(customRoutes),
   ],
   providers: [TemplateRegistry],

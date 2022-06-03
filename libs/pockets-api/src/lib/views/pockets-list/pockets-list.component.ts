@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PocketsHttpService } from '@bootcamp/pockets-api';
-import { Pocket } from '../../../pockets-api/src/lib/model/pocket';
+import { Pocket } from '../../model/pocket';
 import { Observable, tap } from 'rxjs';
 import { Router } from '@angular/router';
 
@@ -43,6 +43,8 @@ export class PocketsListComponent implements OnInit {
   goToDetails(item: Pocket) {
     console.log('navigate');
     // this.router.navigate(['/pockets/details', item.id, { queryParams : JSON.stringify(item) }]);
-    this.router.navigate(['/pockets/details', item.id], { queryParams: { data: JSON.stringify(item) } })
+    this.router.navigate(['/pockets/details', item.id], {
+      queryParams: { data: JSON.stringify(item) },
+    });
   }
 }
