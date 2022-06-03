@@ -2,16 +2,14 @@
   <button
     bbbutton=""
     buttonsize="md"
-    class="m-2 btn-link-text btn-md btn ng-star-inserted"
+    class="m-2 mb-4 btn-link-text btn-md btn ng-star-inserted"
     data-role="btn-icon-link-text-md-def"
     type="button"
   >
-    <bb-icon-ui cropped=""
-      ><em
-        role="img"
-        class="bb-icon bb-icon-arrow-back bb-icon--md bb-icon--cropped bb-icon--primary"
-        aria-hidden="true"
-      ></em></bb-icon-ui
+    <bb-icon-ui
+      class="bb-layout__vertical-nav-item-icon"
+      name="arrow-back"
+    ></bb-icon-ui
     ><span> <a [routerLink]="['/pockets']"> Back to pockets </a> </span>
   </button>
   <bb-header-ui headingType="h1" [heading]="pocketData.name"></bb-header-ui>
