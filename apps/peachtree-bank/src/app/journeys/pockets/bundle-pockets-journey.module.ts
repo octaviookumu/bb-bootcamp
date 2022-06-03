@@ -54,6 +54,11 @@ const customRoutes: Route[] = [
     RouterModule.forChild(customRoutes),
   ],
   providers: [TemplateRegistry],
-  exports: [PocketsJourneyComponent, PocketsListComponent],
+  exports: [
+    PocketsJourneyComponent,
+    PocketsListComponent,
+    PocketDetailsComponent,
+    PocketSvgComponent,
+  ],
 })
 export class PocketsJourneyBundleModule {}

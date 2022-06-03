@@ -23,7 +23,7 @@
     <div
       *ngFor="let item of pockets"
       class="parent p-5 card mt-3 mb-3 pockets-container"
-      (click)="goToDetails(item)"
+      (click)="goToDetails(item.id)"
     >
       <div class="pig p-2 pockets-svg">
         <bootcamp-pocket-svg></bootcamp-pocket-svg>
