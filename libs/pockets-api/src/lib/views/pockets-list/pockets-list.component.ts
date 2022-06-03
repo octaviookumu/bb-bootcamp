@@ -1,6 +1,6 @@
 /* eslint-disable @nrwl/nx/enforce-module-boundaries */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { PocketsHttpService } from '@bootcamp/pockets-api';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
   selector: 'bootcamp-pockets-list',
   templateUrl: './pockets-list.component.html',
   styleUrls: ['./pockets-list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PocketsListComponent {
   pockets$!: Observable<any>;
