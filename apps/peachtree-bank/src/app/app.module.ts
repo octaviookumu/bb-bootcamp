@@ -22,13 +22,16 @@ import { EntitlementsModule } from '@backbase/foundation-ang/entitlements';
     HttpClientModule,
     LogoModule,
     NgbDropdownModule,
-    EntitlementsModule
+    EntitlementsModule,
   ],
-  providers: [...(environment.mockProviders || []),{
-    provide: HTTP_INTERCEPTORS,
-    useClass: PocketsInterceptor,
-    multi: true
-  }],
+  providers: [
+    ...(environment.mockProviders || []),
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: PocketsInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

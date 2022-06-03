@@ -1,6 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Pocket } from '../../model/pocket';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { map, Observable, tap } from 'rxjs';
+import { PocketsHttpService } from '../../api/pockets.service';
 
 @Component({
   selector: 'bootcamp-pocket-details',
@@ -8,15 +10,19 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
   styleUrls: ['./pocket-details.component.scss'],
 })
 export class PocketDetailsComponent implements OnInit {
-  pocketData!: any;
-  urlData!: any;
+  pocketData$!: Observable<any>;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private route: ActivatedRoute,
+    private pocketsService: PocketsHttpService
+  ) {}
 
   ngOnInit() {
-    this.route.queryParamMap.subscribe(
-      (param) => (this.urlData = param.get('data'))
+    const pocketId = this.route.snapshot.params['id'];
+    console.log(pocketId);
+    this.pocketData$ = this.pocketsService.pocketsIdGet({ id: pocketId }).pipe(
+      map((res: any) => res[0]),
+      tap((ting) => console.log('TING', ting))
     );
-    this.pocketData = JSON.parse(this.urlData);
   }
 }
