@@ -16,6 +16,7 @@ import {
   AccountsTransactionsJourneyConfigurationToken,
 } from '@backbase/accounts-transactions-journey-ang';
 import { Route } from '@angular/router';
+import { IconModule } from '@backbase/ui-ang';
 
 const customRoute: Route = {
   path: '',
@@ -63,7 +64,7 @@ const customRoute: Route = {
 };
 
 @NgModule({
-  imports: [AccountsTransactionsJourneyModule.forRoot({ route: customRoute })],
+  imports: [IconModule,AccountsTransactionsJourneyModule.forRoot({ route: customRoute })],
   providers: [
     TemplateRegistry,
     // solves the pubsub error

@@ -1,6 +1,6 @@
+/* eslint-disable @nrwl/nx/enforce-module-boundaries */
 import { NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
-// import { PocketsApiModule } from '../../../../../libs/pockets-api/src/lib/pockets-api.module';
 import { TemplateRegistry } from '@backbase/foundation-ang/core';
 import { PocketsJourneyComponent } from '../../../../../../libs/pockets-api/src/lib/views/pockets/pockets.component';
 import { ButtonModule } from '@backbase/ui-ang';
@@ -13,8 +13,6 @@ import { HeaderModule } from '@backbase/ui-ang';
 import { IconModule } from '@backbase/ui-ang';
 import { AmountModule } from '@backbase/ui-ang';
 import { EntitlementsModule } from '@backbase/foundation-ang/entitlements';
-
-// import { PUBSUB, PubSubService } from '@backbase/foundation-ang/web-sdk';
 
 const customRoutes: Route[] = [
   {

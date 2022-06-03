@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { Component } from '@angular/core';
 import { PocketsHttpService } from '@bootcamp/pockets-api';
 import { Pocket } from '../../model/pocket';
 import { Observable, tap } from 'rxjs';
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
   templateUrl: './pockets-list.component.html',
   styleUrls: ['./pockets-list.component.scss'],
 })
-export class PocketsListComponent implements OnInit {
+export class PocketsListComponent{
   pockets$!: Observable<any>;
   testPocket = {
     id: '1a',
@@ -31,8 +32,6 @@ export class PocketsListComponent implements OnInit {
   ) {
     this.getPockets();
   }
-
-  ngOnInit(): void {}
 
   getPockets() {
     this.pockets$ = this.pocketsService
