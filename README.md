@@ -1,105 +1,51 @@
+# Bootcamp: Steps I Followed
 
+### #2: Generate Theme
+Within the peachtree-bank/src/app/themes directory, I adjusted the colours for the following in their respective folders:
 
-# Bootcamp
+1. Primary: #27AD60
+2. Secondary: #30292F
+3. Info: #5D737E
+4. Background Color: #F8FBF4
+5. Warning: #FA9975
 
-This project was generated using [Nx](https://nx.dev).
+### #3. Add a unique font family
+1. Downloaded the `Mukta` font and added it to the peachtree-bank/src/app/themes/peachtree-bank/assets/fonts directory: 
+2. Created the font's font-faces within the peachtree-bank/src/app/themes/peachtree-bank/scss/3-generic folder and imported them as required.
 
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
+### #4. Navigation & Layout
+1. Created a bundle file for the Accounts Transactions journey
+2. Added it to the app-routing.module with its path attributes
+3. Added its html inside the app.component.html file
+4. Modified the code accordingly
 
-🔎 **Smart, Fast and Extensible Build System**
+### #5. Navigation Submenu
+1. Inside the app.component.html file I added a Pockets <li> element within the “Transfers” dropdown menu
 
-## Quick Start & Documentation
+### #6. Accounts Summary (Adopt)
+1. In the environment.ts file I added mockProviders for the journey
+2. Imported the mockProviders into the app.module.ts file's providers array
+3. Added configurations for the journey in its bundle file (bundle-account-transactions-journey.module.ts)
 
-[Nx Documentation](https://nx.dev/angular)
+### #7. Transactions (Extend)
+1. I added routes for the journey in its bundle file
+2. Imported the routes within the imports array
+3. In the childrens array under the 'transactions' path, I replaced data object's 'title' key with 'Transactions'
 
-[10-minute video showing all Nx features](https://nx.dev/getting-started/intro)
+### #8. Pockets (Build)
+1. Generated an Angular Data Module for the Pockets journey from the pockets-openapi.zip file provided
+2. Generated a library, pockets-api
+3. Replaced the required files in the libs/pockets-api folder and made the needed modifications
+4. Created a bundle file for the Pockets Journey and set up routes along with mockProviders
+5. Created the respective views for the Journey, i.e the Pockets, PocketsList, PocketDetails and PocketSvg
 
-[Interactive Tutorial](https://nx.dev/tutorial/01-create-application)
+### #9. Entitlements (Within Journey)
+1. Imported the Entitlements module within the app.module
+2. Set up an interceptor for the Pockets journey
+3. Added the permission objects within the interceptor
+4. Used the bbIfEntitlements directive on the New Pocket button to conditionally render the button
 
-## Adding capabilities to your workspace
+### #10. Entitlements (Navigation)
+1. Added the permission objects for navigation within the interceptor
+2. Used the bbIfEntitlements directive on navigation
 
-Nx supports many plugins which add capabilities for developing different types of applications and different tools.
-
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
-
-Below are our core plugins:
-
-- [Angular](https://angular.io)
-  - `ng add @nrwl/angular`
-- [React](https://reactjs.org)
-  - `ng add @nrwl/react`
-- Web (no framework frontends)
-  - `ng add @nrwl/web`
-- [Nest](https://nestjs.com)
-  - `ng add @nrwl/nest`
-- [Express](https://expressjs.com)
-  - `ng add @nrwl/express`
-- [Node](https://nodejs.org)
-  - `ng add @nrwl/node`
-
-There are also many [community plugins](https://nx.dev/community) you could add.
-
-## Generate an application
-
-Run `ng g @nrwl/angular:app my-app` to generate an application.
-
-> You can use any of the plugins above to generate applications as well.
-
-When using Nx, you can create multiple applications and libraries in the same workspace.
-
-## Generate a library
-
-Run `ng g @nrwl/angular:lib my-lib` to generate a library.
-
-> You can also use any of the plugins above to generate libraries as well.
-
-Libraries are shareable across libraries and applications. They can be imported from `@bootcamp/mylib`.
-
-## Development server
-
-Run `ng serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng g component my-component --project=my-app` to generate a new component.
-
-## Build
-
-Run `ng build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test my-app` to execute the unit tests via [Jest](https://jestjs.io).
-
-Run `nx affected:test` to execute the unit tests affected by a change.
-
-## Running end-to-end tests
-
-Run `ng e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
-
-Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
-
-## Understand your workspace
-
-Run `nx graph` to see a diagram of the dependencies of your projects.
-
-## Further help
-
-Visit the [Nx Documentation](https://nx.dev/angular) to learn more.
-
-
-
-
-
-
-## ☁ Nx Cloud
-
-### Distributed Computation Caching & Distributed Task Execution
-
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
-
-Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.
-
-Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
-
-Visit [Nx Cloud](https://nx.app/) to learn more.
